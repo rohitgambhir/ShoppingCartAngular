@@ -1,1 +1,19 @@
-<p>home works!</p>
+<div class="body">
+<div class="row">
+    
+<div *ngFor="let p of Products ; index as i">
+    <div class="col col-12 col-md-3 col-lg-3">
+    <div class="card" style="width: 20rem; padding: 10px; margin: auto">
+        <img class="card-img-top" [src]="p.ProductPath" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{p.Name |titlecase}}</h5>
+          <h5 class="card-title">{{p.Price | currency}}</h5>
+          
+          <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+          <a href="#" class="btn btn-primary" (click)="addToCart(i)">Add to Cart</a>
+        </div>
+      </div>
+</div>
+    </div>
+</div>
+</div>
