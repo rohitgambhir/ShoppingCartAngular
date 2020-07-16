@@ -1,0 +1,14 @@
+/* /* :host::ng-deep.slick-slide {
+    margin: 0 10px;
+} */
+/* the parent */
+/* :host::ng-deep.slick-list {
+    margin: 0 -10px;
+} */
+/* :host::ng-deep.container { */
+    /* display: block; */
+    /* height: 700px;
+    width: 100%;
+    /* box-sizing: border-box; */
+
+  

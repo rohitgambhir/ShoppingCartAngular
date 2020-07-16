@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">E-commerceApp</a>
+    <button class="navbar-toggler" (click)=
+    toggleNavbar() type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" [class.show]="isOpen" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" routerLink="/" routerLinkActive="active">Home<span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" routerLink ="/account" routerLinkActive="active">Account</a>
+        <a class="nav-item nav-link" routerLink="/cart" routerLinkActive="active">Cart</a>
+        <!-- <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+        <a class="nav-item nav-link" routerLink="/orders" routerLinkActive="active">Orders</a>
+        <a class="nav-item nav-link" routerLink="/products" routerLinkActive="active">Products</a>
+        <a class="nav-item nav-link" routerLink="/login" routerLinkActive="active">Login Page</a>
+        <a class="nav-item nav-link" routerLink="/sign-up" routerLinkActive="active">SignUp</a>
+        <a class="nav-item btn btn-danger" routerLink="/logout" routerLinkActive="active">Logout</a>
+      </div>
+    </div>
+  </nav>
