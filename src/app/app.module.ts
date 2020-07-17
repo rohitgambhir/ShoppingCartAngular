@@ -1,7 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {environment} from '../environments/environment';
 
 import { AppComponent } from './app.component';
+import {AngularFireModule} from '@angular/fire';
+// import {AngularFirestoreModule} from 'angularfire2/firestore';
+import{AngularFirestore , AngularFirestoreModule} from '@angular/fire/firestore';
+import {AngularFireAuthModule, AngularFireAuth} from '@angular/fire/auth';
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AccountComponent } from './components/account/account.component';
 import { CartComponent } from './components/cart/cart.component';
@@ -32,9 +39,14 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
   imports: [
     BrowserModule,
     NgbModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase,'ecommerceapp'),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    
   ],
-  providers: [],
+  providers: [AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

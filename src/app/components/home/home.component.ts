@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Product} from './../../interface/products.interface';
+import {ProductsService} from '../../products.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,25 +8,29 @@ import {Product} from './../../interface/products.interface';
 })
 export class HomeComponent implements OnInit {
 
-  Products: Array<Product> =[
- {
-   Name : "Banana",Price: 3,Desc:"Fruit" , ProductPath:'assets/banana.jpg'
- },
- {
-  Name : "Mango",Price: 4,Desc:"Fruit" , ProductPath:'/assets/mango.png'
-},
-{
-  Name : "kiwi",Price: 2,Desc:"Fruit" , ProductPath:'assets/kiwi.jpg'
-},
-{
-  Name : "strawberry",Price: 1,Desc:"Fruit" , ProductPath:'assets/strawberry.jpeg'
-},
+  // change Product to any
+  Products: Array<any> =[
+//  {
+//    Name : "Banana",Price: 3,Desc:"Fruit" , ProductPath:'assets/banana.jpg'
+//  },
+//  {
+//   Name : "Mango",Price: 4,Desc:"Fruit" , ProductPath:'/assets/mango.png'
+// },
+// {
+//   Name : "kiwi",Price: 2,Desc:"Fruit" , ProductPath:'assets/kiwi.jpg'
+// },
+// {
+//   Name : "strawberry",Price: 1,Desc:"Fruit" , ProductPath:'assets/strawberry.jpeg'
+// },
 
   ];
      
-  constructor() { }
+  constructor(private ps : ProductsService ) { }
 
   ngOnInit(): void {
+    this.ps.getAllProducts().subscribe(
+      data=>this.Products=data
+    )
   }
   addToCart(index)
   {
