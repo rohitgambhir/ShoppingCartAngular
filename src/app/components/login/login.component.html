@@ -1,11 +1,11 @@
-<p>login works!</p>
+<!-- <p>login works!</p> -->
 <h2 class="text-center">
     Login
 </h2>
 <form #f="ngForm" (ngSubmit)="login(f)">
 
 
-<input ngModel name="Email"
+<input ngModel name="email"
  email
  #email="ngModel"
  type="email"
@@ -22,7 +22,7 @@
  Email Format Correctly
  </div>
 
- <input ngModel name="Password"
+ <input ngModel name="password"
  password
  #password="ngModel"
  type="password"
@@ -41,6 +41,6 @@
 </div>
 <br>
 <button class="btn btn-primary" 
-[disabled]="f.invalid">Login</button>
+[disabled]="f.invalid"(click)='login'>Login</button>
 
 </form>

@@ -7,14 +7,19 @@
     <div class="collapse navbar-collapse" [class.show]="isOpen" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-item nav-link" routerLink="/" routerLinkActive="active">Home<span class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link" routerLink ="/account" routerLinkActive="active">Account</a>
-        <a class="nav-item nav-link" routerLink="/cart" routerLinkActive="active">Cart</a>
+        <a class="nav-item nav-link" routerLink ="/account" routerLinkActive="active" *ngIf="isUser">Account</a>
+        <a class="nav-item nav-link" routerLink="/cart" routerLinkActive="active"
+        *ngIf="isUser">Cart</a>
         <!-- <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
-        <a class="nav-item nav-link" routerLink="/orders" routerLinkActive="active">Orders</a>
+        <a class="nav-item nav-link" routerLink="/orders" routerLinkActive="active"
+        *ngIf="isUser">Orders</a>
         <a class="nav-item nav-link" routerLink="/products" routerLinkActive="active">Products</a>
-        <a class="nav-item nav-link" routerLink="/login" routerLinkActive="active">Login Page</a>
-        <a class="nav-item nav-link" routerLink="/sign-up" routerLinkActive="active">SignUp</a>
-        <a class="nav-item btn btn-danger" routerLink="/logout" routerLinkActive="active">Logout</a>
+        <a class="nav-item nav-link" routerLink="/login" routerLinkActive="active"
+        *ngIf="!isUser">Login Page</a>
+        <a class="nav-item nav-link" routerLink="/sign-up" routerLinkActive="active"
+        *ngIf="!isUser">SignUp</a>
+        <a class="nav-item btn btn-danger" routerLink="/logout" routerLinkActive="active" (click)='logOut()'
+        *ngIf="isUser">Logout</a>
       </div>
     </div>
   </nav>
