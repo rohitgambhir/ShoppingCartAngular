@@ -8,7 +8,6 @@ import {AngularFireModule} from '@angular/fire';
 // import {AngularFirestoreModule} from 'angularfire2/firestore';
 import{AngularFirestore , AngularFirestoreModule} from '@angular/fire/firestore';
 import {AngularFireAuthModule, AngularFireAuth} from '@angular/fire/auth';
-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AccountComponent } from './components/account/account.component';
 import { CartComponent } from './components/cart/cart.component';
@@ -22,6 +21,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import {AngularFireStorageModule} from '@angular/fire/storage';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +44,9 @@ import {AngularFireStorageModule} from '@angular/fire/storage';
     AngularFireModule.initializeApp(environment.firebase,'ecommerceapp'),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    
+    
     
   ],
   providers: [AngularFirestore],

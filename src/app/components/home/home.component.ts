@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { AuthService } from './../../services/auth.service';
 import { CartService } from './../../services/cart.service';
 import { Component, OnInit } from '@angular/core';
 import {Product} from './../../interface/products.interface';
@@ -27,20 +29,23 @@ export class HomeComponent implements OnInit {
   ];
   add:number = -1;
      
-  constructor(private ps : ProductsService , private cart: CartService ) { }
+  constructor(private ps : ProductsService , private cart: CartService , private as: AuthService , private router:Router) { }
 
   ngOnInit(): void {
+     
     this.ps.getAllProducts().subscribe(
       data=>this.Products=data
     )
   }
   addToCart(index)
-  {
+  {   
+     
      this.add = index;
-    console.log("Added" , this.Products[index]);
+    // console.log("Added" , this.Products[index]);
   }
   buy(amount) {
     // this.add has index.
+    if(this.as.userId){
       let selectedProduct= this.Products[this.add];
       let data = {
         name: selectedProduct.Name,
@@ -53,6 +58,10 @@ export class HomeComponent implements OnInit {
       this.cart.addToCart(data)
       .then(()=>this.add=-1)
       .catch(err=>console.log(err));
+    }
+    else{
+      this.router.navigate(['/login']);
+    }
   }
 
 }

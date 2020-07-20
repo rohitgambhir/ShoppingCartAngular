@@ -21,7 +21,7 @@ export class CartComponent implements OnInit {
            ...x.payload.doc.data() as {}
           }
        })
-       console.log(this.ShoppingCart);
+      //  console.log(this.ShoppingCart);
     })
   }
     
