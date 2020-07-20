@@ -25,5 +25,14 @@ addNewProducts(name: string , price: Number , image: File){
      })
    })
 }
+getProducts(){
+  return this.fs.collection('Products').snapshotChanges();
+}
+deleteProducts(id){
+  return this.fs.doc(`Products/${id}`).delete();
+}
+updateProducts(id , Price){
+   return this.fs.doc(`Products/${id}`).update({ Price });
+}
 
 }
