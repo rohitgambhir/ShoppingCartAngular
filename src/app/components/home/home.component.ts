@@ -1,3 +1,4 @@
+import { CartService } from './../../services/cart.service';
 import { Component, OnInit } from '@angular/core';
 import {Product} from './../../interface/products.interface';
 import {ProductsService} from '../../products.service';
@@ -24,8 +25,9 @@ export class HomeComponent implements OnInit {
 // },
 
   ];
+  add:number = -1;
      
-  constructor(private ps : ProductsService ) { }
+  constructor(private ps : ProductsService , private cart: CartService ) { }
 
   ngOnInit(): void {
     this.ps.getAllProducts().subscribe(
@@ -34,7 +36,23 @@ export class HomeComponent implements OnInit {
   }
   addToCart(index)
   {
+     this.add = index;
     console.log("Added" , this.Products[index]);
+  }
+  buy(amount) {
+    // this.add has index.
+      let selectedProduct= this.Products[this.add];
+      let data = {
+        name: selectedProduct.Name,
+        price: selectedProduct.Price,
+        amount: amount
+      }
+      // console.log(data);
+      // this data into user collection to database , so we can create a new service cart or used either user.service.ts , we will create new service , better practice.
+      // call this service cartService  , returns promise
+      this.cart.addToCart(data)
+      .then(()=>this.add=-1)
+      .catch(err=>console.log(err));
   }
 
 }

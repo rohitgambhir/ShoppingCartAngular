@@ -17,6 +17,7 @@ export class NavbarComponent implements OnInit {
     this.as.user.subscribe(user=>{
        if(user){
          this.isUser=true;
+         this.as.userId=user.uid;
         //  this.router.navigate(['/']);
         // do this router in your login component
         //  console.log(this.isUser);

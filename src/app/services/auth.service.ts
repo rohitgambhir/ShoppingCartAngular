@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 export class AuthService {
   
    user:Observable<firebase.User>;
+   userId: string ='';  // will be used in cart ts file after going through processing through navbar as it has subscribed to it.
   constructor(private fauth: AngularFireAuth) { 
       this.user=fauth.user;
   }
