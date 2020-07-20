@@ -22,10 +22,12 @@ export class CartService {
       return this.fs.collection(`users/${this.as.userId}/cart`).snapshotChanges();
    
   }
+  // this id is document id for us.
   deletedocfromcart(id){
     return this.fs.doc(`users/${this.as.userId}/cart/${id}`).delete()
     
   }
+  // this is also document id for us.
   updatedocfromcart(id , amount){
     return this.fs.doc(`users/${this.as.userId}/cart/${id}`).update({ amount });
   }

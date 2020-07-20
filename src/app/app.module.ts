@@ -21,7 +21,7 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-
+import {AngularFireStorageModule} from '@angular/fire/storage';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +44,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     AngularFireModule.initializeApp(environment.firebase,'ecommerceapp'),
     AngularFirestoreModule,
     AngularFireAuthModule,
+    AngularFireStorageModule
     
   ],
   providers: [AngularFirestore],
